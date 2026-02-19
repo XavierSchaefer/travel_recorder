@@ -1,71 +1,55 @@
-# T-AIA-911-NCY_3 ? NLP extraction gares (d?part / arriv?e)
+# Travel Recorder
 
-Projet NLP en 3 parties : **pr?paration** (spaCy), **repr?sentation** (BERT/CamemBERT), **extraction** (NER DEP/ARR).  
-Entr?e : une phrase. Sortie : gare de d?part et gare d?arriv?e, ou `invalid`.
+Application Dash pour extraire les gares de départ/arrivée depuis une phrase en français et tracer l'itinéraire sur une carte.
 
-? **Sch�ma de l'architecture :** [SCHEMA.md](SCHEMA.md)
+## Prérequis
+- Python 3.10+ installé
+- `git` (optionnel, pour cloner le repo)
 
-## Dataset
-
-- `data/dataset.csv` : colonnes `sentence`, `arrival`, `departure`, `nlp_tuple` (entit?s DEP/ARR avec positions).
-
-## Environnement virtuel (venv)
-
-Créer et activer un venv dans le projet :
-
-**Windows (PowerShell) :**
-```powershell
-cd T-AIA-911-NCY_3
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-**Windows (cmd) :**
-```cmd
-cd T-AIA-911-NCY_3
-python -m venv venv
-venv\Scripts\activate.bat
-```
-
-**Linux / macOS :**
+## Installation rapide
+1) Cloner le projet (ou télécharger l'archive) puis se placer à la racine:
 ```bash
-cd T-AIA-911-NCY_3
-python3 -m venv venv
-source venv/bin/activate
+cd travel_recorder
 ```
-
-Une fois activé, le prompt affiche `(venv)`.
-
-## Installation
-
+2) Créer et activer un environnement virtuel:
+- macOS / Linux
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+- Windows (PowerShell)
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+3) Installer les dépendances (inclut le modèle spaCy `fr_core_news_sm` via la roue fournie):
 ```bash
 pip install -r requirements.txt
-python -m spacy download fr_core_news_sm
 ```
 
+## Préparer les données
+Le fichier `res.csv` externe (fourni par l'équipe) doit être copié dans le dossier `back/database/` avant de lancer l'appli:
+```bash
+cp /chemin/vers/res.csv back/database/res.csv
+```
+Le repo contient déjà un exemple, mais écrasez-le si vous avez une version à jour.
+
+## Lancer l'application
+Depuis l'environnement virtuel activé:
+```bash
+python main.py
+```
+L'interface Dash est accessible sur http://localhost:8090/.
+
 ## Utilisation
+- Renseigner une phrase type « je veux aller de Paris à Lyon » ou sélectionner manuellement Départ/Arrivée via les menus déroulants.
+- Le trajet le plus court est affiché sur la carte et la durée estimée est indiquée.
 
-1. **Entra?ner le NER** (une fois) :
-   ```bash
-   python train_ner.py
-   ```
-   Cr?e le dossier `model_ner/`.
+## Arborescence utile
+- `main.py` : point d'entrée Dash.
+- `back/` : logique NLP (extraction d'entités, Dijkstra, datasets).
+- `back/database/res.csv` : données des gares; `dataset.csv` : dataset d'entraînement.
 
-2. **Lancer l?extraction** (phrase au clavier) :
-   ```bash
-   python extract_gares.py
-   ```
-   Puis taper une phrase ; affichage : `d?part | arriv?e` ou `invalid`.
-
-3. **Une phrase en argument** :
-   ```bash
-   python extract_gares.py "je veux aller de Paris ? Lyon"
-   ```
-
-## Les 3 parties NLP (dans `extract_gares.py`)
-
-1. **Pr?-traitement** : tokenization et nettoyage avec spaCy (`partie1_preparation`).
-2. **Repr?sentation** : encodage de la phrase avec CamemBERT (`partie2_representation`).
-3. **Extraction** : NER (mod?le entra?n? sur le dataset) pour obtenir les gares DEP et ARR (`partie3_extraction`).
-
-Si une sortie serait en anglais ou la phrase n?est pas une demande de trajet valide, le programme renvoie `invalid`.
+## Dépannage
+- Si `fr_core_news_sm` est manquant, réinstallez les deps: `pip install -r requirements.txt`.
+- Vérifiez que l'environnement virtuel est bien activé avant de lancer `python main.py`.
