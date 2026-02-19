@@ -45,8 +45,8 @@ fig.update_layout(
 
 app.layout=html.Div(className='wrapper-main',children=[
     dcc.Store(id="station_data", data = all_stations),
-    dcc.Dropdown(id="depart",options=names_list,placeholder="Départ", multi=False),
-    dcc.Dropdown(id="arrivee",options=names_list,placeholder="Arrivée",  multi=False),
+    # dcc.Dropdown(id="depart",options=names_list,placeholder="Départ", multi=False),
+    # dcc.Dropdown(id="arrivee",options=names_list,placeholder="Arrivée",  multi=False),
     dcc.Input(id="phrase",placeholder="Entrez votre demmande", debounce=True),
     html.Div(id="outputs"),
     html.Div(className="map", children=[
