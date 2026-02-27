@@ -1,0 +1,13 @@
+sentence,arrival,departure,nlp_tuple
+je voudrais aller de Reims Maison Blanche à Jarnac,Jarnac,Reims Maison Blanche,"('je voudrais aller de Reims Maison Blanche à Jarnac', {'entities': [(44, 50, 'ARR'), (21, 41, 'DEP')]})"
+je veux faire Morez Porchefontaine,Porchefontaine,Morez,"('je veux faire Morez Porchefontaine', {'entities': [(20, 34, 'ARR'), (14, 19, 'DEP')]})"
+je voudrais aller de Issé à Pont-Saint-Vincent,Pont-Saint-Vincent,Issé,"('je voudrais aller de Issé à Pont-Saint-Vincent', {'entities': [(28, 46, 'ARR'), (21, 25, 'DEP')]})"
+Il y a-t-il des trains de Valognes à Roissy-en-Brie,Roissy-en-Brie,Valognes,"('Il y a-t-il des trains de Valognes à Roissy-en-Brie', {'entities': [(37, 51, 'ARR'), (26, 34, 'DEP')]})"
+Comment me rendre à La Possonnière depuis la gare de Meuse TGV ?,La Possonnière,Meuse TGV,"('Comment me rendre à La Possonnière depuis la gare de Meuse TGV ?', {'entities': [(20, 34, 'ARR'), (53, 62, 'DEP')]})"
+je voudrais aller de Lathus-Saint-Rémy à Brimeux,Brimeux,Lathus-Saint-Rémy,"('je voudrais aller de Lathus-Saint-Rémy à Brimeux', {'entities': [(41, 48, 'ARR'), (21, 38, 'DEP')]})"
+Il y a-t-il des trains de Poliénas à Dompierre-sur-Helpe,Dompierre-sur-Helpe,Poliénas,"('Il y a-t-il des trains de Poliénas à Dompierre-sur-Helpe', {'entities': [(37, 56, 'ARR'), (26, 34, 'DEP')]})"
+je voudrais aller de Thann Saint-Jacques à Vif,Vif,Thann Saint-Jacques,"('je voudrais aller de Thann Saint-Jacques à Vif', {'entities': [(43, 46, 'ARR'), (21, 40, 'DEP')]})"
+je voudrais aller de Toulon Sainte-Musse à Meximieux - Pérouges,Meximieux - Pérouges,Toulon Sainte-Musse,"('je voudrais aller de Toulon Sainte-Musse à Meximieux - Pérouges', {'entities': [(43, 63, 'ARR'), (21, 40, 'DEP')]})"
+Il y a-t-il des trains de Saint-Martin du Touch à Beautiran,Beautiran,Saint-Martin du Touch,"('Il y a-t-il des trains de Saint-Martin du Touch à Beautiran', {'entities': [(50, 59, 'ARR'), (26, 47, 'DEP')]})"
+depuis Saubusse je veux aller a Montrabé pour boire un monaco.,Montrabé,Saubusse,"('depuis Saubusse je veux aller a Montrabé pour boire un monaco.', {'entities': [(32, 40, 'ARR'), (7, 15, 'DEP')]})"
+Je veux aller voir mon ami Albert à Lunel-Viel en partant de Blois - Chambord,Lunel-Viel,Blois - Chambord,"('Je veux aller voir mon ami Albert à Lunel-Viel en partant de Blois - Chambord', {'entities': [(36, 46, 'ARR'), (61, 77, 'DEP')]})"
