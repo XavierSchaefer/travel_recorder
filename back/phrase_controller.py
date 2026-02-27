@@ -45,7 +45,7 @@ def best_station_match(query: str, candidates: list[str]) -> tuple[str, float]:
 
         # base fuzzy similarity
         score = fuzz.WRatio(q, c_norm) / 100.0
-
+        print(cand, score)
         # 2) word-boundary bonus (metz as a full token)
         if q in c_tokens:
             score += 0.20

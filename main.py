@@ -141,7 +141,9 @@ def get_phrase(fig,phrase,store):
 
     path = trip_data['best_trip']['path']
     total_s = trip_data['best_trip']['total_s']
-    
+    print(path)
+    if path == None:
+        return dash.no_update, dash.no_update, "Gare non trouvée"
     highlight_lat = []
     highlight_lon = []
     names = []
